@@ -1,0 +1,39 @@
+{
+  "name": "theredstonetaco",
+  "version": "2.1.7",
+  "description": "this is the code that runs theredstonetaco.com",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRedstoneTaco/theredstonetaco.com.git"
+  },
+  "author": "JesusAndTacos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheRedstoneTaco/theredstonetaco.com/issues"
+  },
+  "homepage": "https://github.com/TheRedstoneTaco/theredstonetaco.com#readme",
+  "dependencies": {
+    "async": "^2.6.1",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "confetti-js": "0.0.11",
+    "connect-flash": "^0.1.1",
+    "date-time": "^2.1.0",
+    "dirty-json": "^0.6.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.10",
+    "mongoose": "^5.1.4",
+    "mongoose-deep-populate": "^3.1.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^5.0.0",
+    "sleep": "^5.1.1"
+  }
+}
