@@ -39,17 +39,12 @@ router.post("/register", function(req, res) {
     // create temporary, blank user object
     var newUser = new User({
       username: req.body.username,
-      email: req.body.email,
-      password: "",
-      contacts: [],
-      encounters: [],
-      events: []
+      authentication: 0,
+      password: ""
     });
 
     // create new user with object, setup password, register
     User.register(newUser, req.body.password, function(error, registeredUser) {
-
-      console.log(registeredUser);
 
         if (error || !registeredUser) {
             console.log("ERROR in POST: /register trying to create user " + error);

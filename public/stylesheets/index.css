@@ -10,3 +10,122 @@ html, body {
 .nav-item.active {
   font-size: 2.0em;
 }
+
+#page-container {
+  position: relative;
+  z-index: 1;
+}
+
+/**
+  Removing Offers
+*/
+#overlay {
+  position: fixed;
+  z-index: 2;
+  background-color: #fff;
+  padding: 50px 20px;
+  border: 2px solid black;
+  display: none;
+}
+.offer.highlighted {
+  background-color: #aaa;
+}
+
+/*
+  Shop adding
+*/
+#shop-add-title {
+  border-bottom: 2px solid black;
+}
+
+/*
+  Shop styling
+*/
+#shops-display-title {
+  border-bottom: 2px solid black;
+}
+.shop {
+  margin-bottom: 10px;
+  max-height: 350px;
+  overflow-y: auto;
+}
+.shop[shopType=mine] *, .shop[shoptype=me] * {
+  border: 4px solid black !important;
+}
+.shop [role="owner-container"] {
+  width: 100%;
+  padding: 2px;
+  border: 2px solid black;
+}
+.shop [name=owner] {
+  width: 100%;
+  display: block;
+  padding: 2px;
+  font-size: 2rem;
+}
+.shop .offers {
+  width: 100%;
+  border: 1px solid black;
+}
+.shop .offers tr {
+  border-bottom: 1px solid black;
+}
+.shop .offers td {
+  text-align: center;
+  padding: 2px;
+  border-right: 1px solid black;
+}
+
+/**
+  Deal styling
+*/
+#deals-title {
+  text-align: center;
+}
+.deal {
+  border: 2px solid black;
+  margin-bottom: 40px;
+}
+.deal .itemName {
+  font-size: 1.5rem;
+  border: 3px solid black;
+  padding: 10px;
+}
+.deal .offers .offer[success=true] {
+  background-color: green;
+  color: white;
+}
+.deal .offers .offer[success=false] {
+  background-color: red;
+  color: white;
+}
+.deal .offers .offer {
+  width: 100%;
+  border: 1px solid black;
+  padding: 10px;
+}
+.deal .offers .offer > span {
+  margin: 2px 10px 2px 2px;
+}
+.deal .offers .offer .amount {
+  font-weight: 800;
+  font-size: 1.3em;
+}
+.deal .offers .offer .singlePrice {
+  font-weight: 800;
+  font-size: 1.4em;
+}
+.deal .offers .offer[offerType=sell] .sell-text,
+.deal .offers .offer[offerType=sell] .price,
+.deal .offers .offer[offerType=sell] .singlePrice {
+  color: #fff;
+  background-color: #f55;
+  padding: 5px;
+}
+.deal .offers .offer[offerType=buy] .buy-text,
+.deal .offers .offer[offerType=buy] .price,
+.deal .offers .offer[offerType=buy] .singlePrice {
+  color: #fff;
+  background-color: #3f5;
+  padding: 5px;
+}

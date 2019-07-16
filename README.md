@@ -1,11 +1,27 @@
-Split up page into parts
+=====MODELS=====
 
-TOP TO BOTTOM
+User {
+  username: String,
+  password: String
+}
 
-1. Intro
-    * Hi, picture, scroll down button
-2. Balls bouncing around in a canvas element
-    * Add, remove balls button
-3. Confetti buttons
-    * Canvas with button overlays
-4. 
+Shop {
+  type: String ("Mine", "Me", "Player"),
+  owner: String (username of the cell/shop owner),
+  offers: [{
+    type: String ("buy" or "sell"),
+    item: String ("iron", "diamond", "egg", "dirt"),
+    itemType: String ("single", "ingot", "block", "ore"),
+    amount: Number ("1", "16", "64"),
+    price: Number ("1", "2.5", "33000")
+  }]
+}
+
+=====PAGE LAYOUT=====
+
+OFFERS
+Shop offers at the top
+Your offers
+Everyone else's offers
+
+DEALS

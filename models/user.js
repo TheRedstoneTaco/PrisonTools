@@ -3,20 +3,8 @@ var passportLocalMongoose = require("passport-local-mongoose");
 
 var userSchema = new mongoose.Schema({
   username: String,
-  email: String,
   password: String,
-  contacts: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Contact"
-  }],
-  encounters: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Encounter"
-  }],
-  events: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Event"
-  }]
+  authentication: Number
 });
 
 // plugin passportLocalMongoose to add functionality to the model

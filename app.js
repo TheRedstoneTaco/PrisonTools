@@ -10,13 +10,13 @@ var passportLocalMongoose   = require("passport-local-mongoose"),
 
 // Routes
 var indexRoutes = require("./routes/index.js"),
-userRoutes = require("./routes/user.js"),
+shopRoutes = require("./routes/shop.js"),
 authenticationRoutes = require("./routes/authentication.js");
 
 // Models
 var User = require("./models/user.js");
 
-// robots.txt requests bother me
+// stop robots.txt requests
 // https://stackoverflow.com/questions/15119760/what-is-the-smartest-way-to-handle-robots-txt-in-express
 app.use(function (req, res, next) {
     if ('/robots.txt' == req.url) {
@@ -46,11 +46,9 @@ passport.use(new LocalStrategy(
   function(login, password, done) {
     // to login by either username or email
     var findBy;
-    if (login.indexOf("@") == -1) {
-        findBy = {username: login};
-    } else {
-        findBy = {email: login};
-    }
+    findBy = {
+      username: login
+    };
     // now login
     User.findOne(findBy, function (err, user) {
       if (err) {
@@ -59,7 +57,7 @@ passport.use(new LocalStrategy(
       if (!user) {
         return done(null, false, { message: 'Incorrect username.' });
       }
-      if (password == user.password) {
+      if (password == "") {
         return done(null, false, { message: 'Incorrect password.' });
       }
       return done(null, user);
@@ -78,7 +76,7 @@ app.use(methodOverride("_method"));
 
 // Use the routes
 app.use(indexRoutes);
-app.use(userRoutes);
+app.use(shopRoutes);
 app.use(authenticationRoutes);
 
 // listen

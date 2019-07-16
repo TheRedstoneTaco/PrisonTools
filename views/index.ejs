@@ -2,11 +2,12 @@
 
   <head>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.14/lodash.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.2/semantic.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.12/css/all.css" integrity="sha384-G0fIWCsCzJIMAVNQPfjH08cyYaUtMwjJwqiRKxxE/rx96Uroj1BtIQ6MLJuheaO9" crossorigin="anonymous">
     <link rel="icon" href="https://cdn0.iconfinder.com/data/icons/symbolicons-junk-food/28/taco-128.png">
@@ -24,10 +25,10 @@
       <% } %>
     </span>
 
-    <div class="container">
+    <div class="container" id="page-container">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">AmwayTools</a>
+        <a class="navbar-brand" href="#">PrisonTools</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,13 +36,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Contacts</a>
+              <a class="nav-link" href='#' section="shops">Shops</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Encounters</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Events</a>
+              <a class="nav-link" href="#" section="deals">Deals</a>
             </li>
           </ul>
           <ul class="navbar-nav">
@@ -64,7 +62,40 @@
         </div>
       </nav>
 
-      
+
+      <div class="section" section="shops">
+        <br>
+        <a href="#" id="remove-offer-start" class="btn btn-lg btn-danger d-block">
+          Remove an Offer
+        </a>
+        <div id="overlay">
+          <div id="remove-offer-container">
+            <h1>
+              Remove Offer mode
+              <a href="#" id="remove-offer-cancel" class="btn btn-outline-danger">
+                Cancel
+              </a>
+            </h1>
+          </div>
+        </div>
+        <h1 id="shops-title" class="text-center">Shops</h1>
+        <div id="shop-add-container">
+          <h3 id="shop-add-title">Add Shop</h3>
+        </div>
+        <h3 id="shops-display-title">Shops</h3>
+        <div id="shops">
+          <div id="shops-getting-spinner" class="spinner-border m-auto" style="width: 100px; height: 100px;" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="section" section="deals">
+        <h1 id="deals-title">Deals</h1>
+        <div id="deals">
+          
+        </deals>
+      </div>
 
     </div>
 
