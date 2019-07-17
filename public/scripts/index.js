@@ -14,6 +14,9 @@ var user, contacts, encounters, events;
 
 $(document).ready(function() {
 
+  // hide deals to start
+  $('.section[section=deals]').hide();
+
   // page navigation
   $(".nav-item").click(function(event) {
     event.preventDefault();
@@ -47,18 +50,6 @@ $(document).ready(function() {
       bindShops();
     }
   });
-
-  // userID = $("#userID").text().trim();
-  // $("#userID").remove();
-  // $.ajax("/user/" + userID, {
-  //   method: "GET",
-  //   success: function(data) {
-  //     user = data;
-  //     contacts = user.contacts;
-  //     encounters = user.encounters;
-  //     events = user.events;
-  //   }
-  // });
 
 });
 
@@ -106,8 +97,8 @@ function computeOffers() {
         divider = 1.0;
       } else if (tmpOffer.itemType == "block") {
         var item = tmpOffer.item;
-        var twoByTwo = ["glowstone"];
-        var threeByThree = ["coal", "iron", "gold", "diamond", "lapis", "redstone", "emerald"];
+        var twoByTwo = ["glowstone", "snow", "clay"];
+        var threeByThree = ["bone", "coal", "iron", "gold", "diamond", "lapis", "redstone", "emerald"];
         if (twoByTwo.indexOf(item) != -1) {
           divider = 4.0;
         } else if (threeByThree.indexOf(item) != -1) {
@@ -166,7 +157,7 @@ function computeOffers() {
   var keys = Object.keys(sortedOffers);
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    sortedOffers[key].sell = _.sortBy(sortedOffers[key].sell, ["singlePrice"]);
+    sortedOffers[key].sell = _.sortBy(sortedOffers[key].sell, ["singlePrice"]).reverse();
     sortedOffers[key].buy = _.sortBy(sortedOffers[key].buy, ["singlePrice"]).reverse();
   }
 }
@@ -474,7 +465,8 @@ var offerDefaultJSON = {
   types: ["buy", "sell"],
   items: ["oak_wood", "dirt", "coarse_dirt", "grass_block", "cobblestone", "stone",
   "coal", "iron", "gold", "diamond", "lapis", "redstone", "gravel", "flint",
-  "glowstone", "egg", "emerald"],
+  "glowstone", "egg", "emerald", "snow", "sand", "red_sand", "bone", "glass",
+  "chorus", "obsidian", "seed", "nether_wart", "clay"],
   itemTypes: ["single", "ore", "ingot", "block"]
 };
 function formatValue(str) {
